@@ -90,10 +90,21 @@ export default class ClusterConfigurationAgent implements IClusterConfigurationA
     try {
       const response: MongoDBAtlasClusterUpdateResponse = await cluster.Update(options.clusterName, {
         name: options.clusterName,
-        providerSettings: {
-          providerName: options.provider,
-          instanceSizeName: options.instanceSize,
-        },
+        replicationSpecs: [
+          {
+            regionConfigs: [
+              {
+                electableSpecs: {
+                  instanceSize: options.instanceSize,
+                  nodeCount: options.nodeCount,
+                },
+                providerName: options.provider,
+                regionName: options.regionName,
+                priority: 7,
+              },
+            ],
+          },
+        ],
       });
 
       if (response.status === 200) {

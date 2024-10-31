@@ -16,18 +16,20 @@ Please fork this repo for your projects and update the following constants in th
 const ATLAS_PROVIDER: MongoDBAtlasProvider = 'AWS';
 const ATLAS_PROJECT_ID = 'XXXXXXXXXXXXXXXXXXXXXXXX';
 const ATLAS_CLUSTER_NAME = 'ClusterName';
+const ATLAS_REGION: MongoDBAtlasAWSRegion | MongoDBAtlasAzureRegion | MongoDBAtlasGCPRegion = 'Your Cloud Provider Region';
+const ATLAS_NODE_COUNT = 3;
 
 // Scale up scheduling & configuration
 const SCALE_UP_DAYS: CrontabDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 const SCALE_UP_HOUR: string = '6';
 const SCALE_UP_MINUTE: string = '0';
-const SCALE_UP_INSTANCE_SIZE: MongoDBAtlasInstanceSize = 'M50';
+const SCALE_UP_INSTANCE_SIZE = 'M50';
 
 // Scale down scheduling & configuration
 const SCALE_DOWN_DAYS: CrontabDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 const SCALE_DOWN_HOUR = '18';
 const SCALE_DOWN_MINUTE: string = '0';
-const SCALE_DOWN_INSTANCE_SIZE: MongoDBAtlasInstanceSize = 'M30';
+const SCALE_DOWN_INSTANCE_SIZE = 'M30';
 ```
 
 ### Runtime Environment Variables

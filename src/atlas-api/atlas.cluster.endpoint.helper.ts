@@ -3,7 +3,7 @@ import { IAtlasClusterEndpoint } from '../interfaces';
 import { MongoDBAtlasClusterUpdateResponse } from '../types';
 
 class AtlasClusterEndpoint implements IAtlasClusterEndpoint {
-  private readonly baseUrl: string = 'https://cloud.mongodb.com/api/atlas/v1.0';
+  private readonly baseUrl: string = 'https://cloud.mongodb.com/api/atlas/v2';
 
   private readonly digestAuth: string;
 
@@ -31,7 +31,7 @@ class AtlasClusterEndpoint implements IAtlasClusterEndpoint {
         dataType: 'json',
         method: 'PATCH',
         data: body,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { Accept: 'application/vnd.atlas.2024-10-23+json', 'Content-Type': 'application/json' },
         ...this.requestOptions,
       },
     );
